@@ -95,7 +95,8 @@ module RRD
       [definition, printable]
     end
 
-    def save    
+    def save
+      logger.debug "RRD cmd: " + *generate_args
       Wrapper.graph(*generate_args)
     end
     

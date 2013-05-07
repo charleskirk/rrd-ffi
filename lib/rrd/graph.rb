@@ -96,7 +96,7 @@ module RRD
     end
 
     def save
-      logger.debug "RRD cmd: " + generate_args
+      Rails.logger.debug "RRD cmd: " + generate_args
       Wrapper.graph(*generate_args)
     end
     

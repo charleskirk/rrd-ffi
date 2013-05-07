@@ -16,6 +16,9 @@ module RRD
   def graph(image_file, options = {}, &block)
     graph = Graph.new(image_file, options)
     graph.instance_eval(&block)
+    if options[:debug]
+      raise graph.inspect
+    end
     graph.save
   end
 

@@ -105,7 +105,6 @@ module RRD
       args += RRD.to_line_parameters(parameters, GRAPH_FLAGS)
       args += definitions
       args += printables
-      Rails.logger.debug "RRD cmd: " + args
     end
     
     def draw(type, options)

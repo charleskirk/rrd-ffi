@@ -236,6 +236,10 @@ module RRD
         ysize_ptr = empty_pointer
         ymin_ptr = empty_pointer
         ymax_ptr = empty_pointer
+        
+        Rails.logger.debug "RRD Args: " + args.to_s
+        Rails.logger.debug "RRD Argv: " + argv.to_s
+        
         result = rrd_graph(args.size+1, argv, calcpr_ptr, xsize_ptr, ysize_ptr, nil, ymin_ptr, ymax_ptr) == 0
         
         if (!calcpr_ptr.read_pointer.null?)

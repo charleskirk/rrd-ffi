@@ -96,7 +96,6 @@ module RRD
     end
 
     def save
-      Rails.logger.debug "RRD cmd: " + generate_args.join('|').to_s
       Wrapper.graph(*generate_args)
     end
     
@@ -106,6 +105,7 @@ module RRD
       args += RRD.to_line_parameters(parameters, GRAPH_FLAGS)
       args += definitions
       args += printables
+      Rails.logger.debug "RRD cmd: " + args
     end
     
     def draw(type, options)
